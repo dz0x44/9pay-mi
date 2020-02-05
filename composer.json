@@ -11,6 +11,7 @@
         }
     ],
     "type": "library",
+    "minimum-stability": "stable",
     "require": {
 		"php": ">=7.1",
         "fabpot/goutte": "^4.0",
