@@ -1,7 +1,7 @@
 {
-    "name": "dz0x44/9pay-mi",
+    "name": "dz0x44/9pay-mi-spider",
     "description": "9Pay Micro Invest NAV Crawler",
-    "keywords": ["9pay", "micro invest", "crawler", "bvbf"],
+    "keywords": ["9pay", "micro invest", "crawler", "spider"],
     "license": "MIT",
     "authors": [
         {
