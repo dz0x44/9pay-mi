@@ -2,24 +2,24 @@
 
 namespace Dz0x44\Mi;
 
+
 class VndbfCrawler extends CrawlerBase {
-	const URL = 'https://ipaam.com.vn/bao-cao-nav-quy-vndbf/';
+	const URL = 'https://ipaam.com.vn/quy-dau-tu/quy-mo-trai-phieu-vndbf/bao-cao-nav/';
 
 	public function crawl(){
 		$crawler = $this->client->request('GET', self::URL);
-		$src = $crawler->filter('iframe')->first()->attr('src');
-		$src = str_replace('widget=true', 'widget=false', $src);
-
-		$crawler = $this->client->request('GET', $src);
+        $src = $crawler->filter('iframe')->first()->attr('src');
+        $src = str_replace('widget=true', 'widget=false', $src);
+        $crawler = $this->client->request('GET', trim($src));
 		return $this->_extract_data($crawler->html());
 	}
 
 	private function _extract_data($content){
-		if (preg_match('/chartJson(.*?)serializedChartProperties/', $content, $matches)) {
-			return $this->decode($matches[1]);
-		}
+        if (preg_match('/chartJson(.*?)serializedChartProperties/', $content, $matches)) {
+            return $this->decode($matches[1]);
+        }
 
-		return false;
+        return false;
 	}
 
 	private function decode($code){
