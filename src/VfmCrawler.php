@@ -78,7 +78,7 @@ class VfmCrawler extends CrawlerBase {
 		$file_path = $this->download_file($file_link);
 		$data = $this->read_xlsx($file_path);
 
-		return $data[2][4] ?? false;
+		return $data[2][3] ?? false;
 	}
 
 	public function crawl($fund_code, $date_from, $date_to){
