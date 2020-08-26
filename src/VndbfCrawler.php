@@ -33,10 +33,17 @@ class VndbfCrawler extends CrawlerBase {
 
 		$data = json_decode($code, true);
 
+		$year = 2019;
 		if ($data = $data['dataTable']['rows'] ?? false){
 			$response = [];
+			$pre_loop_month = null;
 			foreach ($data as $row){
-				$response[$row['c'][0]['v']] = $row['c'][1]['v'];
+                if ($pre_loop_month == 'Dec' && strpos($row['c'][0]['v'], $pre_loop_month) === false) {
+			        $year++;
+                }
+                $key = $row['c'][0]['v'] . '-' . $year;
+                $response[$key] = $row['c'][1]['v'];
+                $pre_loop_month = explode("-", $row['c'][0]['v'])[1];
 			}
 
 			return $response;
