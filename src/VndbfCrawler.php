@@ -3,8 +3,6 @@
 namespace Dz0x44\Mi;
 
 
-use Goutte\Client;
-
 class VndbfCrawler extends CrawlerBase {
 	const URL = 'https://ipaam.com.vn/quy-dau-tu/quy-mo-trai-phieu-vndbf/bao-cao-nav/';
 
