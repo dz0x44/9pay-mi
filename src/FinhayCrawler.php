@@ -34,6 +34,7 @@ class FinhayCrawler extends CrawlerBase {
 		'VFF' => 19,
 		'VIBF' => 20,
 		'VCAMBF' => 21,
+		'VNDBF' => 22,
 	];
 
 	public function checkLogin(){
